@@ -82,3 +82,7 @@ constraint pk_capacitacion_asistente primary key (id_asistente, id_capacitacion)
 constraint fk_asistente foreign key (id_asistente) references asistente(id_asistente),
 constraint fk_capacitacion_asistente foreign key (id_capacitacion) references capacitacion(id_capacitacion)
 );
+
+INSERT INTO `registro_capacitacion`.`asistente` (`run`, `nombre`, `apellido`, `cargo`) VALUES ('18115480-2', 'Ricardo', 'Abarza', 'Programador');
+INSERT INTO `registro_capacitacion`.`asistente` (`run`, `nombre`, `apellido`, `cargo`) VALUES ('7259753-2', 'Claudia', 'Villalobos', 'Administrativo');
+

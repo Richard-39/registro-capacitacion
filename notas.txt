@@ -1,0 +1,19 @@
+Hola Ricardo
+
+Por favor te pido me puedas ayudar con una necesidad de administración de datos.
+
+Por favor, desarrolla una base de datos para almacenar las capacitaciones de una empresa.
+Que permita hacer consulta de datos individuales y poder extraer estadísticas grupales.
+Además, debe ser posible:
+- Ingresar los datos, desde una persona (sólo el encargado ingresará los nombres de los asistentes
+- Exportar un comprobante de la capacitación realizada
+
+Adjunto un ejemplo de un registro de capacitación.
+Con ese ejemplo, puedes conocer los campos de la base de datos y algunos valores que pueden tomar.
+
+Algunas de las preguntas que debe responder el sistema son:
+- ¿Cuáles temáticas ha recibido 1 persona, en este año (después preguntar en un período más amplio)?
+- ¿Cuántas personas han sido capacitadas sobre 1 temática, este año (si las personas han sido capacitadas más de una vez, vale por 1 vez, porque me interesa la temática, no cuántas veces)?
+- ¿Cuál es la evolución temporal de las capacitaciones de 1 temática en particular?
+- ¿En cuáles lugares se distribuye las capacitaciones de 1 temática?
+

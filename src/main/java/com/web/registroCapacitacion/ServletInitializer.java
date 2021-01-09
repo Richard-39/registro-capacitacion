@@ -1,4 +1,4 @@
-package com.web.registroCapaciacion;
+package com.web.registroCapacitacion;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

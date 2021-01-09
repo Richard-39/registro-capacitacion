@@ -1,4 +1,4 @@
-package com.web.registroCapaciacion;
+package com.web.registroCapacitacion;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

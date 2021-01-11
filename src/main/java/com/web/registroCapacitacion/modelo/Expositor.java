@@ -36,5 +36,13 @@ public class Expositor {
 	private String run;
 	private String nombre;
 	private String apellido;
+	
+	@Override
+	public String toString() {
+		return "Expositor [idExpositor=" + idExpositor + ", run=" + run + ", nombre=" + nombre + ", apellido="
+				+ apellido + "]";
+	}
+	
+	
 
 }

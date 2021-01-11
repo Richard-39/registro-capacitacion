@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
@@ -35,5 +36,7 @@ public class Capacitacion {
 	
 	@ManyToMany(mappedBy = "capacitacionesTematicas")
 	private List<Tematica> tematicas;
+	
+	
 	
 }

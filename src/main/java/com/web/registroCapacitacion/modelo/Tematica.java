@@ -36,4 +36,12 @@ public class Tematica {
 	
 	private String nombre;
 	private String descripcion;
+	
+	
+	@Override
+	public String toString() {
+		return "Tematica [idTematica=" + idTematica + ", nombre=" + nombre + ", descripcion=" + descripcion + "]";
+	}
+	
+	
 }

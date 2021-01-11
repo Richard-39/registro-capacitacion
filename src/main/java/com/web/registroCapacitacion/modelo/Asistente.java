@@ -35,5 +35,13 @@ public class Asistente {
 	private String nombre;
 	private String apellido;
 	private String cargo;
+	
+	@Override
+	public String toString() {
+		return "Asistente [idAsistente=" + idAsistente + ", run=" + run + ", nombre=" + nombre + ", apellido="
+				+ apellido + ", cargo=" + cargo + "]";
+	}
+	
+	
 
 }

@@ -35,5 +35,13 @@ public class Grupo {
 	
 	private String nombre;
 	private String descripcion;
+	
+	
+	@Override
+	public String toString() {
+		return "Grupo [idGrupo=" + idGrupo + ", nombre=" + nombre + ", descripcion=" + descripcion + "]";
+	}
+	
+	
 
 }

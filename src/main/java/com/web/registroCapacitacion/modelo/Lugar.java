@@ -37,4 +37,13 @@ public class Lugar {
 	private String nombre;
 	private String direccion;
 	
+	
+	@Override
+	public String toString() {
+		return "Lugar [idLugar=" + idLugar + ", nombre=" + nombre + ", direccion=" + direccion + "]";
+	}
+	
+	
+	
+	
 }

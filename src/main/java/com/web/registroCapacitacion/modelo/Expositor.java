@@ -29,9 +29,8 @@ public class Expositor {
 	@Column(name="id_expositor")
 	private Integer idExpositor;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "capacitacion_expositor", joinColumns = @JoinColumn(name = "id_expositor"), inverseJoinColumns = @JoinColumn(name = "id_capacitacion"))
-	private List<Capacitacion> capacitacionesExpositores;
+	@ManyToMany(mappedBy = "expositores")
+	private List<Capacitacion> capacitaciones;
 	
 	private String run;
 	private String nombre;

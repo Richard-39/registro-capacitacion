@@ -28,14 +28,11 @@ public class Grupo {
 	@Column(name="id_grupo")
 	private Integer idGrupo;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "capacitacion_grupo", joinColumns = @JoinColumn(name = "id_grupo"), inverseJoinColumns = @JoinColumn(name = "id_capacitacion"))
-	private List<Capacitacion> capacitacionesGrupos;
-	
+	@ManyToMany(mappedBy = "grupos")
+	private List<Capacitacion> capacitaciones;
 	
 	private String nombre;
 	private String descripcion;
-	
 	
 	@Override
 	public String toString() {

@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
@@ -27,9 +31,8 @@ public class Asistente {
 	@Column(name="id_asistente")
 	private Integer idAsistente;
 	
-	@ManyToMany(cascade = CascadeType.ALL,fetch=FetchType.EAGER)
-	@JoinTable(name = "capacitacion_asistente", joinColumns = @JoinColumn(name = "id_asistente"), inverseJoinColumns = @JoinColumn(name = "id_capacitacion"))
-	private List<Capacitacion> capacitacionesAsistentes;
+	@ManyToMany(mappedBy = "asistentes")
+	private List<Capacitacion> capacitaciones;
 	
 	private String run;
 	private String nombre;

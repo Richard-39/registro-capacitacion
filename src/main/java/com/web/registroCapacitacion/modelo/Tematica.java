@@ -29,14 +29,11 @@ public class Tematica {
 	@Column(name="id_tematica")
 	private Integer idTematica;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "capacitacion_tematica", joinColumns = @JoinColumn(name = "id_tematica"), inverseJoinColumns = @JoinColumn(name = "id_capacitacion"))
-	private List<Capacitacion> capacitacionesTematicas;
-	
+	@ManyToMany(mappedBy = "tematicas")
+	private List<Capacitacion> capacitaciones;
 	
 	private String nombre;
 	private String descripcion;
-	
 	
 	@Override
 	public String toString() {

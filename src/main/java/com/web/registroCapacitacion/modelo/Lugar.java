@@ -29,21 +29,15 @@ public class Lugar {
 	@Column(name="id_lugar")
 	private Integer idLugar;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "capacitacion_lugar", joinColumns = @JoinColumn(name = "id_lugar"), inverseJoinColumns = @JoinColumn(name = "id_capacitacion"))
-	private List<Capacitacion> capacitacionesLugares;
-	
+	@ManyToMany(mappedBy = "lugares")
+	private List<Capacitacion> capacitaciones;
 	
 	private String nombre;
 	private String direccion;
-	
 	
 	@Override
 	public String toString() {
 		return "Lugar [idLugar=" + idLugar + ", nombre=" + nombre + ", direccion=" + direccion + "]";
 	}
-	
-	
-	
 	
 }

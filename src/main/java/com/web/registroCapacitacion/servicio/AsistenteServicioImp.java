@@ -24,7 +24,7 @@ public class AsistenteServicioImp implements IAsistente{
 		AsistenteVo asistenteVo = new AsistenteVo(new ArrayList<Asistente>(), "Ha habido un error", "101");
 		try {
 			asistenteVo.setAsistentes(asistenteDao.findAll());
-			asistenteVo.setMensaje(String.format("Se han encontrado %f asistente", asistenteVo.getAsistentes().size()));
+			asistenteVo.setMensaje(String.format("Se han encontrado %d asistente", asistenteVo.getAsistentes().size()));
 			asistenteVo.setCodigo("0");
 		} catch (Exception e) {
 			log.info("Se ha encontrado un error en AsistenteServicioImp: findAll " + e);

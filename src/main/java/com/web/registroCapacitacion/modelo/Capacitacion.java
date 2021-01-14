@@ -1,6 +1,7 @@
 package com.web.registroCapacitacion.modelo;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -55,7 +56,7 @@ public class Capacitacion {
 	@ManyToMany(fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	@JoinTable(name = "capacitacion_tematica", joinColumns = @JoinColumn(name = "id_capacitacion"), inverseJoinColumns = @JoinColumn(name = "id_tematica"))
-	private List<Tematica> tematicas;
+	private List<Tematica> tematicas ;
 
 	@Override
 	public String toString() {

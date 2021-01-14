@@ -24,7 +24,7 @@ public class CapacitacionServicioImp implements ICapacitacion {
 		CapacitacionVo capacitacionVo = new CapacitacionVo(new ArrayList<Capacitacion>(), "Ha habido un error", "101");
 		try {
 			capacitacionVo.setCapacitaciones(capacitacionDao.findAll());
-			capacitacionVo.setMensaje(String.format("Se han encontrado %f capacitaciones.", capacitacionVo.getCapacitaciones().size()));
+			capacitacionVo.setMensaje(String.format("Se han encontrado %d capacitaciones.", capacitacionVo.getCapacitaciones().size()));
 			capacitacionVo.setCodigo("0");
 		} catch (Exception e) {
 			log.info("Se ha encontrado un error en CapacitacionServicioImp : findAll " + e);

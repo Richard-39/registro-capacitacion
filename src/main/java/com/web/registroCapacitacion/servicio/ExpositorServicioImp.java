@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.web.registroCapacitacion.dao.ExpositorDao;
 import com.web.registroCapacitacion.modelo.Expositor;
 import com.web.registroCapacitacion.vo.ExpositorVo;
 
+@Service
 public class ExpositorServicioImp implements IExpositor {
 
 	@Autowired
@@ -22,7 +24,7 @@ public class ExpositorServicioImp implements IExpositor {
 		ExpositorVo expositorVo = new ExpositorVo(new ArrayList<Expositor>(), "Ha habido un error", "101");
 		try {
 			expositorVo.setExpositores(expositorDao.findAll());
-			expositorVo.setMensaje(String.format("Se han encontrado %f expositores", expositorVo.getExpositores().size()));
+			expositorVo.setMensaje(String.format("Se han encontrado %d expositores", expositorVo.getExpositores().size()));
 			expositorVo.setCodigo("0");
 		} catch (Exception e) {
 			log.info("Se ha encontrado un error en ExpositorServicioImp: findAll " + e);

@@ -24,7 +24,7 @@ public class GrupoServicioImp implements IGrupo {
 		GrupoVo grupoVo = new GrupoVo(new ArrayList<Grupo>(), "Ha ocurrido un error", "101");
 		try {
 			grupoVo.setGrupos(grupoDao.findAll());
-			grupoVo.setMensaje(String.format("Se han encontrado %f grupos", grupoVo.getGrupos().size()));
+			grupoVo.setMensaje(String.format("Se han encontrado %d grupos", grupoVo.getGrupos().size()));
 			grupoVo.setCodigo("0");
 		} catch (Exception e) {
 			log.info("Se ha encontrado un error en GrupoServicioImp : findAll  + e");

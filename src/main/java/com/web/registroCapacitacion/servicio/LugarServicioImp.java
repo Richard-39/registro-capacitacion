@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.web.registroCapacitacion.dao.LugarDao;
 import com.web.registroCapacitacion.modelo.Lugar;
 import com.web.registroCapacitacion.vo.LugarVo;
 
+@Service
 public class LugarServicioImp implements ILugar {
 
 	@Autowired
@@ -22,7 +24,7 @@ public class LugarServicioImp implements ILugar {
 		LugarVo lugarVo = new LugarVo(new ArrayList<Lugar>(), "Ha habido un error", "101");
 		try {
 			lugarVo.setLugares(lugarDao.findAll());
-			lugarVo.setMensaje(String.format("Se han encontrado %f lugares", lugarVo.getLugares().size()));
+			lugarVo.setMensaje(String.format("Se han encontrado %d lugares", lugarVo.getLugares().size()));
 			lugarVo.setCodigo("0");
 		} catch (Exception e) {
 			log.info("Se ha encontrado un error en LugarServicioImp : findAll " + e);

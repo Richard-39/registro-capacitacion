@@ -30,7 +30,9 @@ public class Capacitacion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_capacitacion;
+	private String nombre;
 	private Date fecha;
+	private String hora;
 	
 	@ManyToMany(fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)

@@ -2,49 +2,98 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
+	<!-- 	Bootstrap’s compiled CSS and JS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	
+	<!-- 	Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-	
+
 	<!-- 	font awesome -->
 	<script src="https://kit.fontawesome.com/d717a34448.js" crossorigin="anonymous"></script>
 	
-	<!-- 	jquery -->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 <title>Capacitaciones</title>
 </head>
 <body>
 
-	<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">Capacitaciones</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarText">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link active" href="#">Capacitaciones</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link active" href="#">Administrar</a>
+	        </li>
+	      </ul>
+	      <a class="nav-link" href="#">Cerrar Sesión</a>
+	    </div>
+	  </div>
+	</nav>
+
+	
+
+	<div class="container mt-5 px-5">
 		
-		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearCapacitacion">
-		  Crear Capacitacion
-		</button>
-		<p th:text="${temativaVo.mensaje}">
-		<table class="table text-center">
-		  <thead>
-		    <tr>
-		      <th scope="col">N°</th>
-		      <th scope="col">Fecha</th>
-		      <th>Opciones</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr th:each="capacitacion:${capacitacionVo.capacitaciones}">
-		      <th scope="row" th:text="${capacitacion.id_capacitacion}"></th>
-		      <td th:text="${capacitacion.fecha}"></td>
-		      <td>
-		      	<a href="#" class="btn btn-warning"><i class="far fa-edit"></i></a>
-		     	<a href="#" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
-		     	<a href="#" class="btn btn-success"><i class="fas fa-user-plus"></i></a>
-		      </td>
-		    </tr>
-		  </tbody>
-		</table>
-	</div>
+			<div class="row">
+				<div class="col-1"></div>
+				<div class="col-10">
+
+					<div class="row">
+						<div class="col-8">
+							<h1>Capacitaciones</h1>
+						</div>
+	
+						<div class="text-end col-4 align-self-center">
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary my-auto"
+								data-bs-toggle="modal" data-bs-target="#crearCapacitacion">
+								Crear Capacitación</button>
+						</div>
+					</div>
+	
+					<table class="table text-center mt-5">
+					  <thead>
+					    <tr>
+					      <th scope="col">N°</th>
+					      <th>Nombre</th>
+					      <th>Fecha</th>
+					      <th>Hora</th>
+					      <th>Opciones</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr th:each="capacitacion:${capacitacionVo.capacitaciones}">
+					      <th scope="row" th:text="${capacitacion.id_capacitacion}"></th>
+					      <td th:text="${capacitacion.nombre}"></td>
+					      <td th:text="${capacitacion.fecha}"></td>
+					      <td th:text="${capacitacion.hora}"></td>
+					      <td>
+					     	<a href="#" class="btn btn-primary"><i class="far fa-eye"></i></i></a>
+					      	<a href="#" class="btn btn-warning"><i class="far fa-edit"></i></a>
+					     	<a href="#" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+					     	<a href="#" class="btn btn-success"><i class="fas fa-user-plus"></i></a>
+					      </td>
+					    </tr>
+					  </tbody>
+					</table>
+		</div>
+		
+		</div>
+			<div class="col-1"></div>
+		</div>
+		
+		
 
 <!-- Modal Crear Capacitacion-->
 <div class="modal fade" id="crearCapacitacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -53,27 +102,90 @@
   <form th:action="@{/capacitaciones/crear}" method="get" th:object=${capacitacion}>
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Crear Capacitacion</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Crear Capacitación</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+      
+        <div class="mb-3">
+		    <label for="nombreCapactiacion" class="form-label">Nombre Capacitación</label>
+		    <input type="text" class="form-control" id="nombreCapactiacion" name="nombre">
+		</div>
+      
+      	<div class="row">
+      	    <div class="mb-3 col-8">
+			    <label for="fecha" class="form-label">Fecha</label>
+			    <input type="date" class="form-control" id="fecha" name="fecha">
+			</div>
+		
+		<div class="mb-3 col-4">
+			<label class="form-label">Hora</label>
+			<div>
+				<select name="hora">
+					<option th:each="i : ${#numbers.sequence(8, 22)}" th:value="${i > 9} ? ${i} : '0' + ${i}" th:text="${i > 9} ? ${i} : '0' + ${i}"></option>
+				</select>
+				<select name="minutos">
+					<option value="00" th:text="'00'"></option>
+					<option value="15" th:text="15"></option>
+					<option value="30" th:text="30"></option>
+					<option value="45" th:text="45"></option>
+				</select><br>
+				<small class="form-text text-muted">Horas : Minutos</small>
+			</div>
+		</div>
+      		
+      	</div>
+      
+ 
+		
+		<div class="mb-3">
+		    <label for="lugar" class="form-label">Lugar</label>
+		    <ul>
+		    	<li>
+		    		<input type="checkbox" th:field="*{lugares}" th:value="5" id="oficina">
+				    <label th:text="'Oficina'" for="oficina"></label>
+		    	</li>
+		    	<li>
+			    	<select th:field="*{lugares}">
+						<option th:each="lugar : ${lugarVo.lugares}"
+							th:value="${lugar.idLugar}" th:text="${lugar.nombre}" th:if="${lugar.nombre != 'Oficina'}"></option>
+					</select>
+		    	</li>
+		    </ul>
+		</div>
       
 		  <div class="mb-3">
 		    <label for="tematica" class="form-label">Temáticas</label>
 		    <ul>
 		    	<li th:each="tematica : ${temativaVo.tematicas}">
-		    		<input type="checkbox" th:field="*{tematicas}"  th:value="${tematica.idTematica}">
-		    		<label th:text="${tematica.nombre}"></label>
-<!-- 		    		al estar en el mismo grupo se mapea automaticamante al objeto entregado -->
+		    		<input type="checkbox" th:field="*{tematicas}"  th:value="${tematica.idTematica}" th:id="${tematica.nombre} + ${tematica.idTematica}">
+		    		<label th:text="${tematica.nombre}" th:for="${tematica.nombre} + ${tematica.idTematica}"></label>
+	<!-- 		    		th:name="|tematicas[${tematicaStat.index}].idTematica|" otra forma de mapear. se indica la propiedad y sus campos internos-->
+	<!-- 		    		nombre al estar en el mismo grupo se mapea automaticamante al objeto entregado -->
 		    	</li>
 		    </ul>
 		  </div>
 		  
 		  <div class="mb-3">
-		    <label for="fecha" class="form-label">Fecha</label>
-		    <input type="date" class="form-control" id="fecha" name="fecha">
+		    <label for="expositor" class="form-label">Expositor</label>
+		    <ul>
+		    	<li th:each="expositor : ${expositorVo.expositores}">
+		    		<input type="checkbox" th:field="*{expositores}"  th:value="${expositor.idExpositor}" th:id="${expositor.nombre} + ${expositor.idExpositor}">
+		    		<label th:text="${expositor.nombre} + ' ' + ${expositor.apellido}" th:for="${expositor.nombre} + ${expositor.idExpositor}"></label>
+		    	</li>
+		    </ul>
 		  </div>
-  		
+		  
+		  <div class="mb-3">
+		    <label for="grupo" class="form-label">Grupos</label>
+		    <ul>
+		    	<li th:each="grupo : ${grupoVo.grupos}">
+		    		<input type="checkbox" th:field="*{grupos}"  th:value="${grupo.idGrupo}" th:id="${grupo.nombre} + ${grupo.idGrupo}">
+		    		<label th:text="${grupo.nombre}" th:for="${grupo.nombre} + ${grupo.idGrupo}"></label>
+		    	</li>
+		    </ul>
+		  </div>
+		 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

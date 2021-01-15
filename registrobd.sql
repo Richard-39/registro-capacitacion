@@ -3,7 +3,9 @@ use registro_capacitacion;
 
 create table capacitacion(
 id_capacitacion INT auto_increment,
+nombre varchar(200),
 fecha date,
+hora varchar(5),
 constraint pk_capacitacion primary key (id_capacitacion)
 );
 
@@ -90,26 +92,26 @@ INSERT INTO `registro_capacitacion`.`asistente` (`run`, `nombre`, `apellido`, `c
 INSERT INTO `registro_capacitacion`.`asistente` (`run`, `nombre`, `apellido`, `cargo`) VALUES ('22333444-5', 'Felipe', 'Choncha', 'Operario');
 INSERT INTO `registro_capacitacion`.`asistente` (`run`, `nombre`, `apellido`, `cargo`) VALUES ('33444555-6', 'Golondrina', 'Feliz', 'Operario');
 
+INSERT INTO `registro_capacitacion`.`tematica` (`nombre`, `descripcion`) VALUES ('Manejo de residuos', 'Cómo manejar los desechos para ser sustentables');
+INSERT INTO `registro_capacitacion`.`tematica` (`nombre`, `descripcion`) VALUES ('Biodiversidad', 'Las diferentes vidas que existen en el ecosistema');
+INSERT INTO `registro_capacitacion`.`tematica` (`nombre`, `descripcion`) VALUES ('Planes de acción', 'Actividades a realizar en el momento indicado');
+INSERT INTO `registro_capacitacion`.`tematica` (`nombre`, `descripcion`) VALUES ('Monitoreo del agua', 'Formas de medir el rendimiento del uso del agua');
 
-INSERT INTO `registro_capacitacion`.`tematica` (`nombre`) VALUES ('Manejo de residuos');
-INSERT INTO `registro_capacitacion`.`tematica` (`nombre`) VALUES ('Biodiversidad');
-INSERT INTO `registro_capacitacion`.`tematica` (`nombre`) VALUES ('Planes de acción');
-INSERT INTO `registro_capacitacion`.`tematica` (`nombre`) VALUES ('Monitoreo del agua');
+INSERT INTO `registro_capacitacion`.`lugar` (`nombre`, `direccion`) VALUES ('Cultivo norte', 'Subiendo por el pasillo a la derecha');
+INSERT INTO `registro_capacitacion`.`lugar` (`nombre`, `direccion`) VALUES ('Cultivo sur', 'Bajando la escalera, primera puerta a la izquierda');
+INSERT INTO `registro_capacitacion`.`lugar` (`nombre`, `direccion`) VALUES ('Cultivo este', 'Entrando por la manpara, ascensor al subterraneo');
+INSERT INTO `registro_capacitacion`.`lugar` (`nombre`, `direccion`) VALUES ('Cultivo oeste', 'Desde la terraza hacia la zona de residuos');
+INSERT INTO `registro_capacitacion`.`lugar` (`nombre`, `direccion`) VALUES ('Oficina', 'Tercer piso, departamento 304');
 
-INSERT INTO `registro_capacitacion`.`lugar` (`nombre`) VALUES ('Cultivo norte');
-INSERT INTO `registro_capacitacion`.`lugar` (`nombre`) VALUES ('Cultivo sur');
-INSERT INTO `registro_capacitacion`.`lugar` (`nombre`) VALUES ('Cultivo este');
-INSERT INTO `registro_capacitacion`.`lugar` (`nombre`) VALUES ('Cultivo oeste');
-
-INSERT INTO `registro_capacitacion`.`grupo` (`nombre`) VALUES ('Supervisores');
-INSERT INTO `registro_capacitacion`.`grupo` (`nombre`) VALUES ('Externos');
+INSERT INTO `registro_capacitacion`.`grupo` (`nombre`, `descripcion`) VALUES ('Supervisores', 'Empoderados empleados');
+INSERT INTO `registro_capacitacion`.`grupo` (`nombre`, `descripcion`) VALUES ('Externos', 'Gente de visita');
 
 INSERT INTO `registro_capacitacion`.`expositor` (`run`, `nombre`, `apellido`) VALUES ('12345678-9', 'Fabian', 'Abarza');
 INSERT INTO `registro_capacitacion`.`expositor` (`run`, `nombre`, `apellido`) VALUES ('23456789-0', 'Pancho', 'Correa');
 
-INSERT INTO `registro_capacitacion`.`capacitacion` (`fecha`) VALUES ('2021-01-12');
-INSERT INTO `registro_capacitacion`.`capacitacion` (`fecha`) VALUES ('2021-01-13');
-INSERT INTO `registro_capacitacion`.`capacitacion` (`fecha`) VALUES ('2021-01-14');
+INSERT INTO `registro_capacitacion`.`capacitacion` (`nombre`, `fecha`, `hora`) VALUES ('Gestion de residuos en planta', '2021-01-12', '08:45');
+INSERT INTO `registro_capacitacion`.`capacitacion` (`nombre`, `fecha`, `hora`) VALUES ('Manejo de los recursos en crisis', '2021-01-13', '18:00');
+INSERT INTO `registro_capacitacion`.`capacitacion` (`nombre`, `fecha`, `hora`) VALUES ('Cómo mantener a los salmones felices', '2021-01-14', '15:30');
 
 -- capacitacion expositor --
 INSERT INTO `registro_capacitacion`.`capacitacion_expositor` (`id_expositor`, `id_capacitacion`) VALUES ('1', '1');

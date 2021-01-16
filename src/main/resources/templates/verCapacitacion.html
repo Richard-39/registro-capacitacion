@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<!-- 	Bootstrap’s compiled CSS and JS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	
+	<!-- 	Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+
+	<!-- 	font awesome -->
+	<script src="https://kit.fontawesome.com/d717a34448.js" crossorigin="anonymous"></script>
+	
+
+<title>Detalle Capacitación</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">Capacitaciones</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarText">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link active" href="#">Capacitaciones</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link active" href="#">Administrar</a>
+	        </li>
+	      </ul>
+	      <a class="nav-link" href="#">Cerrar Sesión</a>
+	    </div>
+	  </div>
+	</nav>
+
+	
+
+	<div class="container mt-5 mb-5 px-5">
+		
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col-10">
+
+				<div class="row">
+					<div class="col-8">
+						<h1>Detalle Capacitación</h1>
+					</div>
+				</div>
+
+				<div class="row mt-5">
+					<div class="col-3">
+						<table class="table">
+							<tbody>
+								<tr>
+									<td>Fecha
+									</th>
+									<td th:text="${capacitacionVo.capacitaciones[0].fecha}"></td>
+								</tr>
+								<tr>
+									<td>Hora
+									</th>
+									<td th:text="${capacitacionVo.capacitaciones[0].hora}"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="col-5"></div>
+					<div class="text-end col-4 align-self-center">
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-success my-auto"
+							data-bs-toggle="modal" data-bs-target="#crearCapacitacion">
+							Exportar</button>
+					</div>
+				</div>
+
+
+				<div class="row mt-3">
+				
+					<div class="col-3">
+						<ul class="list-group">
+							<li class="list-group-item list-group-item-primary" aria-current="true">Temáticas</li>
+							<li class="list-group-item" th:each="tematica : ${capacitacionVo.capacitaciones[0].tematicas}" th:text="${tematica.nombre}"></li>
+						</ul>
+					</div>
+					
+					<div class="col-3">
+						<ul class="list-group">
+							<li class="list-group-item list-group-item-primary" aria-current="true">Lugares</li>
+							<li class="list-group-item" th:each="lugar : ${capacitacionVo.capacitaciones[0].lugares}" th:text="${lugar.nombre}"></li>
+						</ul>
+					</div>
+					
+					<div class="col-3">
+						<ul class="list-group">
+							<li class="list-group-item list-group-item-primary" aria-current="true">Grupos</li>
+							<li class="list-group-item" th:each="grupo : ${capacitacionVo.capacitaciones[0].grupos}" th:text="${grupo.nombre}"></li>
+						</ul>
+					</div>
+				
+					<div class="col-3">
+						<ul class="list-group">
+							<li class="list-group-item list-group-item-primary" aria-current="true">Expositores</li>
+							<li class="list-group-item" th:each="expositor : ${capacitacionVo.capacitaciones[0].expositores}" th:text="${expositor.nombre} + ' ' + ${expositor.apellido}"></li>
+						</ul>
+					</div>
+				
+				</div>
+				
+
+				
+				
+				<div class="row mt-5">
+					<div class="col-8">
+						<h3>Asistentes</h3>
+					</div>
+				</div>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">N°</th>
+							<th scope="col">Run</th>
+							<th scope="col">Nombre</th>
+							<th scope="col">Apellido</th>
+							<th scope="col">Cargo</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="asistente, aStat :${capacitacionVo.capacitaciones[0].asistentes}">
+							<th scope="row" th:text="${aStat.count}"></th>
+							<td th:text="${asistente.run}"></td>
+							<td th:text="${asistente.nombre}"></td>
+							<td th:text="${asistente.apellido}"></td>
+							<td th:text="${asistente.cargo}"></td>
+						</tr>
+					</tbody>
+				</table>
+
+
+			</div>
+			<div class="col-1"></div>
+		</div>
+
+	</div>
+		
+</body>
+</html>

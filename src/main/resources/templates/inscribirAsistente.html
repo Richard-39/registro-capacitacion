@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<!-- 	Bootstrap’s compiled CSS and JS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	
+	<!-- 	Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+
+	<!-- 	font awesome -->
+	<script src="https://kit.fontawesome.com/d717a34448.js" crossorigin="anonymous"></script>
+	
+
+<title>Incribir Asistente</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">Capacitaciones</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarText">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link active" href="#">Capacitaciones</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link active" href="#">Administrar</a>
+	        </li>
+	      </ul>
+	      <a class="nav-link" href="#">Cerrar Sesión</a>
+	    </div>
+	  </div>
+	</nav>
+
+	
+
+	<div class="container mt-5 mb-5 px-5">
+
+		<div class="row">
+			<div class="col-8">
+				<h1>Inscribir Asistente</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-6">
+
+				<div>
+					<h3>Colaboradores</h3>
+				</div>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th></th>
+							<th scope="col">N°</th>
+							<th scope="col">Run</th>
+							<th scope="col">Nombre</th>
+							<th scope="col">Apellido</th>
+							<th scope="col">Cargo</th>
+						</tr>
+					</thead>
+					<form th:action="@{/capacitaciones/inscribir}" method="get" th:object=${capacitacionACompletar}>
+					<tbody>
+						<tr
+							th:each="asistente, aStat :${asistenteVo.asistentes}">
+							<td><input type="checkbox" th:field="*{asistentes}" th:value="${asistente.idAsistente}" th:id="${asistente.nombre} + ${asistente.idAsistente}"></td>
+							<th scope="row" th:text="${aStat.count}"></th>
+							<td th:text="${asistente.run}"></td>
+							<td th:text="${asistente.nombre}" th:for="${asistente.nombre} + ${asistente.idAsistente}"></td>
+							<td th:text="${asistente.apellido}"></td>
+							<td th:text="${asistente.cargo}"></td>
+						</tr>
+					</tbody>
+					
+				</table>
+				<button type="submit" class="btn btn-success">Inscribir</button>
+				</form>
+			</div>
+			<div class="col-6">
+
+				<div>
+					<h3>Inscritos</h3>
+				</div>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">N°</th>
+							<th scope="col">Run</th>
+							<th scope="col">Nombre</th>
+							<th scope="col">Apellido</th>
+							<th scope="col">Cargo</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr
+							th:each="asistente, aStat :${capacitacionACompletar.asistentes}">
+							<th scope="row" th:text="${aStat.count}"></th>
+							<td th:text="${asistente.run}"></td>
+							<td th:text="${asistente.nombre}"></td>
+							<td th:text="${asistente.apellido}"></td>
+							<td th:text="${asistente.cargo}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+		
+</body>
+</html>

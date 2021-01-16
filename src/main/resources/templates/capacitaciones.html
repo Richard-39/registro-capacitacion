@@ -79,18 +79,18 @@
 					      <td th:text="${capacitacion.fecha}"></td>
 					      <td th:text="${capacitacion.hora}"></td>
 					      <td>
-					     	<a href="#" class="btn btn-primary"><i class="far fa-eye"></i></i></a>
+					     	<a th:href="@{/capacitaciones/ver(id=${capacitacion.id_capacitacion})}" class="btn btn-primary"><i class="far fa-eye"></i></i></a>
 					      	<a href="#" class="btn btn-warning"><i class="far fa-edit"></i></a>
 					     	<a href="#" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
-					     	<a href="#" class="btn btn-success"><i class="fas fa-user-plus"></i></a>
+					     	<a th:href="@{/capacitaciones/preInscribir(id=${capacitacion.id_capacitacion})}" class="btn btn-success"><i class="fas fa-user-plus"></i></a>
 					      </td>
 					    </tr>
 					  </tbody>
 					</table>
+				</div>
+				<div class="col-1"></div>
 		</div>
-		
-		</div>
-			<div class="col-1"></div>
+			
 		</div>
 		
 		
